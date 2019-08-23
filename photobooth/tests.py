@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import User,Images,tags
 
 # Create your tests here.
-class UserrTestClass(TestCase):
+class UserTestClass(TestCase):
 
     # Set up method
     def setUp(self):
@@ -15,5 +15,5 @@ class UserrTestClass(TestCase):
         # Testing Save Method
     def test_save_method(self):
         self.james.save_user()
-        editors = Editor.objects.all()
+        users = User.objects.all()
         self.assertTrue(len(users) > 0)
