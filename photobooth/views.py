@@ -13,3 +13,15 @@ def images_of_day(request):
 
     return render(request, 'all-images/today-images.html',{"date":date,'images':images})
 
+#presents news from past days
+def past_days_images(request,past_date):
+
+    try:
+    #converts data from the string url
+        date = dt.datetime.strptime(past_date,'%y-%m-%d').date()
+
+    except ValueError:
+        #raise 404 error when valueError is thrown
+        raise Http404()
+        assert False
+
