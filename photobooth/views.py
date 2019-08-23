@@ -3,6 +3,6 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def welcome(request):
-    return HttpResponse('welcome to the moringa tribune')
+def home(request):
+    return HttpResponse('stalk-a-thon')
 

@@ -2,4 +2,4 @@
 virtual/
 .vscode/
 migrations/
-db.sqlite
+db.sqlite3
