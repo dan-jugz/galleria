@@ -11,7 +11,7 @@ class User(models.Model):
     class Meta:
         ordering = ['first_name']
 
-    def save_editor(self):
+    def save_user(self):
         self.save()
 
 class tags(models.Model):
@@ -19,3 +19,27 @@ class tags(models.Model):
 
     def __str__(self):
         return self.name
+
+class Image(models.Model):
+    title = models.CharField(max_length =60)
+    post = models.TextField()
+    user = models.ForeignKey('Editor',on_delete=models.CASCADE)
+    tags = models.ManyToManyField(tags)
+    pub_date = models.DateTimeField(auto_now_add=True)
+    article_image = models.ImageField(upload_to = 'articles/',default='Something')
+
+    @classmethod
+    def todays_image(cls):
+        today = dt.date.today()
+        image = cls.objects.filter(pub_date__date = today)
+        return image
+
+    @classmethod
+    def days_image(cls,date):
+        image = cls.objects.filter(pub_date__date = date)
+        return image
+    
+    @classmethod
+    def search_by_title(cls,search_term):
+        image = cls.objects.filter(title__icontains=search_term)
+        return image
