@@ -9,7 +9,7 @@ def home(request):
 
 def images_of_day(request):
     date =dt.date.today()
-    images=Article.todays_images()
+    images=Image.todays_images()
 
     return render(request, 'all-images/today-images.html',{"date":date,'images':images})
 
@@ -25,3 +25,8 @@ def past_days_images(request,past_date):
         raise Http404()
         assert False
 
+    if date == dt.date.today():
+        return redirect(images_today)
+    images = image.days_images(date)
+
+    return render(request, 'all-images/past-images.html',{"date": date,"images":images})

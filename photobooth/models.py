@@ -1,6 +1,6 @@
 from django.db import models
+import datetime as dt
 
-# Create your models here.
 class User(models.Model):
     first_name = models.CharField(max_length =30)
     last_name = models.CharField(max_length =30)
@@ -29,7 +29,7 @@ class Image(models.Model):
     article_image = models.ImageField(upload_to = 'articles/',default='Something')
 
     @classmethod
-    def todays_image(cls):
+    def todays_images(cls):
         today = dt.date.today()
         image = cls.objects.filter(pub_date__date = today)
         return image
