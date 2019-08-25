@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
-from . import views
+from django.conf.urls import url,include
 
 urlpatterns=[
-    url(r'^$',views.news_today,name='newsToday'),
-    url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_images,name = 'pastImages')
+    url(r'^admin/', admin.site.urls),
+    url(r'',include('photobooth.urls'))
 ]
