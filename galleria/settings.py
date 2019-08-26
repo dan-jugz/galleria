@@ -23,14 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ng_3b(u$y58lho*uaibeph*ln&5gq!uaznk-bomvp-^@nwb#7t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [config('ALLOWED_HOSTS', cast=Csv())]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap3',
     'photobooth.apps.PhotoboothConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -63,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -78,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'USER': 'daniel',
-        'PASSWORD':'watchlist',
+        'USER': 'dan_jugz',
+        'PASSWORD':'galleria',
     }
 }
 
