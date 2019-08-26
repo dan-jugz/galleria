@@ -27,7 +27,7 @@ class Image(models.Model):
     user = models.ForeignKey('User',on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
-    article_image = models.ImageField(upload_to = 'images/',default='Something')
+    article_image = models.ImageField(upload_to = 'images/',default='')
 
     @classmethod
     def todays_images(cls):
