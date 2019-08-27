@@ -11,7 +11,7 @@ def images_of_day(request):
     date =dt.date.today()
     images=Image.todays_images()
 
-    return render(request, 'all-images/today-images.html',{"date":date,"images":images})
+    return render(request, "all-images/today-images.html",{"date":date,"images":images})
 
 #presents news from past days
 def past_days_images(request,past_date):
