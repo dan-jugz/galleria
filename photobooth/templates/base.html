@@ -10,9 +10,11 @@
     <title> Galleria </title>
     {% endif %}
 
+    ​
     {% block styles %}
-        {% bootstrap_css %}
-    {% endblock %}
+        {% bootstrap_css%}
+         <link rel="stylesheet" href="{% static 'css/basepics.css' %}">
+    {% endblock styles %}
 </head>
 <body>
     {% include "navbar.html" %}
@@ -21,10 +23,14 @@
         <h1 class="text-center jumbotron text-primary">Pics for {{date|date:"l d-F Y"}}</h1>
     {%endblock%}
 
-    {% block scripts %}
+    
+</body>       
+{% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         {% bootstrap_javascript %}
-    {% endblock %}
-</body>        <link rel="stylesheet" href="{% static 'css/basepics.css' %}">
-
+        <script src="{% static 'js/masonry.js' %}"></script>
+        <script src="{% static 'js/imagesLoaded.js'%}"></script>
+        <script src="{% static 'js/galleria.js' %}"></script>
+        
+    {% endblock scripts %}
 </html>

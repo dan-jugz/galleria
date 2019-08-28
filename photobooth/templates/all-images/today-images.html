@@ -9,12 +9,15 @@
     }
    </style>
 <div class="container">
-
+  <section class="masonry-grid" id="work">
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      {% if images%}
     <!-- Looping through news   -->
     {% for image_item in images %}
   
     <div class="row">
-        <a data-toggle="modal" href="#{{image_item.pk}}" class="image_itemasso-modal-trigger">
+        <a data-toggle="modal" href="#{{image_item.pk}}" class="grid-item">
       
       <!--Display image  -->
       <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
@@ -59,12 +62,15 @@
         </div>
       </div>
     </div>
-    {% empty %}
+    
+    {% endfor %}
+  </div>
+  </div> 
+  </div>
+  </section>
+  {% else %}
     <div class="row">
       <h2 class="text-center">There are No image_items</h2>
     </div>
-    {% endfor %}
-  
-  </div>
-  
+  {% endif %}
   {% endblock %}
