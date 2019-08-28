@@ -47,8 +47,8 @@ def search_results(request):
         return render(request, 'all-images/search.html',{"message":message,"images": searched_images})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'all-images/search.html',{"message":message})
+        messager = "You haven't searched for any term"
+        return render(request, 'all-images/search.html',{"messager":messager})
 
 def image(request,image_id):
     try:
